@@ -13,7 +13,7 @@ pipeline {
             }
             steps {
                 sh 'go version'
-                sh 'git pull'
+                sh 'git pull origin master'
             }
         }
         
