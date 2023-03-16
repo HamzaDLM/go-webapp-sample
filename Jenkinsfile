@@ -4,17 +4,6 @@ pipeline {
     tools { go 'go 1.19' }
     
     stages {
-        stage('Checkout') {
-            agent {
-                label {
-                    label 'nodeworker'
-                    customWorkspace '/home/nodeworker/go-webapp-sample'
-                }
-            }
-            steps {
-                sh 'git checkout blueocean'
-            }
-        }
         stage('Build') {
             agent {
                 label {
@@ -24,7 +13,7 @@ pipeline {
             }
             steps {
                 sh 'go version'
-                sh 'git pull'
+                sh 'git pull origin blueocean'
             }
         }
         
